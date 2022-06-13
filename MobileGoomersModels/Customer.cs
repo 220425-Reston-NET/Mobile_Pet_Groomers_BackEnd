@@ -1,4 +1,4 @@
-﻿namespace MobileGroomersModels
+﻿namespace MobileGoomersModels
 {
     public class Customer
     {
