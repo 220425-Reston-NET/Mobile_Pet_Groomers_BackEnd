@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileGroomersAPI", "MobileGroomersAPI\MobileGroomersAPI.csproj", "{89766B20-A8CB-434F-BF02-907246088738}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileGroomersBL", "MobileGroomersBL\MobileGroomersBL.csproj", "{A3C9A567-01DB-4A4F-889A-6E2A86BE1C95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileGroomersDL", "MobileGroomersDL\MobileGroomersDL.csproj", "{B7EE0167-F800-4064-A624-0DDBA6CF2528}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileGroomersModel", "MobileGroomersModels\MobileGroomersModel.csproj", "{0717667E-565A-4BB4-9FDF-1527CD6F48AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileGroomersUI", "MobileGroomersUI\MobileGroomersUI.csproj", "{29A355C6-45EE-4E81-A9AB-CDBAC1397F69}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89766B20-A8CB-434F-BF02-907246088738}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89766B20-A8CB-434F-BF02-907246088738}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89766B20-A8CB-434F-BF02-907246088738}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89766B20-A8CB-434F-BF02-907246088738}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3C9A567-01DB-4A4F-889A-6E2A86BE1C95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3C9A567-01DB-4A4F-889A-6E2A86BE1C95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3C9A567-01DB-4A4F-889A-6E2A86BE1C95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3C9A567-01DB-4A4F-889A-6E2A86BE1C95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7EE0167-F800-4064-A624-0DDBA6CF2528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7EE0167-F800-4064-A624-0DDBA6CF2528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7EE0167-F800-4064-A624-0DDBA6CF2528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7EE0167-F800-4064-A624-0DDBA6CF2528}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0717667E-565A-4BB4-9FDF-1527CD6F48AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0717667E-565A-4BB4-9FDF-1527CD6F48AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0717667E-565A-4BB4-9FDF-1527CD6F48AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0717667E-565A-4BB4-9FDF-1527CD6F48AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29A355C6-45EE-4E81-A9AB-CDBAC1397F69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29A355C6-45EE-4E81-A9AB-CDBAC1397F69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29A355C6-45EE-4E81-A9AB-CDBAC1397F69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29A355C6-45EE-4E81-A9AB-CDBAC1397F69}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
