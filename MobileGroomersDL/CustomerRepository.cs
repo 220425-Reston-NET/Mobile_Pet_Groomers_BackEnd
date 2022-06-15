@@ -1,6 +1,10 @@
+
+using System.Text.Json;
+using MobileGoomersModels;
+
 namespace MobileGroomersDL
 {
-    public class CustomerRepository
+    public class CustomerRepository : IRepository<Customer>
     {
         private string _filepath = "..MobileGroomersDL/Data/Customer.json";
 
