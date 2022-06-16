@@ -2,15 +2,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MobileGroomersModels\MobileGroomersModel.csproj" />
+    <ProjectReference Include="..\MobileGroomersBL\MobileGroomersBL.csproj" />
+    <ProjectReference Include="MobileGroomersUI.csproj" />
+    <ProjectReference Include="..\MobileGroomersDL\MobileGroomersDL.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Data.SqlClient" Version="4.1.0" />
-  </ItemGroup>
-
-
 
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>

@@ -2,21 +2,27 @@ using Microsoft.Data.SqlClient;
 using MobileGoomersModels;
 
 
-namespace ShoeAppDL
+namespace MobileGroomersDL
 {
     public class SQLCustomerRepository : IRepository<Customer>
     {
+        //==============================================
         private string _connectionString;
+
+        public SQLCustomerRepository()
+        {
+        }
 
         public SQLCustomerRepository(string c_connectionString)
 
     {
         this._connectionString = c_connectionString;
     }
+    //====================================================
         public void Add(Customer c_resource)
         {
-            string SQLQuary = @"insert into Customer
-                               values (@custName, @custEmail, @custAddress, @custPhonenumber)";
+            string SQLQuary = @"insert into Customers
+                               values (@custUserName, @custPassword, @custFirstName, @custLastName, @custAddress, @custCity, @custState)";
 
             using (SqlConnection con = new SqlConnection(_connectionString))
             {
@@ -24,10 +30,14 @@ namespace ShoeAppDL
 
                 SqlCommand command = new SqlCommand(SQLQuary, con);
 
-                command.Parameters.AddWithValue("@custName", c_resource.Name);
-                command.Parameters.AddWithValue("@custEmail", c_resource.Email);
+
+                command.Parameters.AddWithValue("@custUserName", c_resource.UserName);
+                command.Parameters.AddWithValue("@custPassword", c_resource.Password);
+                command.Parameters.AddWithValue("@custFirstName", c_resource.FirstName);
+                command.Parameters.AddWithValue("@custLastName", c_resource.LastName);
                 command.Parameters.AddWithValue("@custAddress", c_resource.Address);
-                command.Parameters.AddWithValue("@custPhonenumber", c_resource.Phonenumber);
+                command.Parameters.AddWithValue("@custCity", c_resource.City);
+                command.Parameters.AddWithValue("@custState", c_resource.State);
 
                 command.ExecuteNonQuery();
             }
@@ -35,9 +45,9 @@ namespace ShoeAppDL
 
         public List<Customer> GetAll()
         {
-            string SQLQuary = @"select * from Customer";
+            string SQLQuary = @"select * from Customers";
 
-            List<Customer> listOfCustomer = new List<Customer>();
+            List<Customer> listOfCustomers = new List<Customer>();
 
             using (SqlConnection con = new SqlConnection(_connectionString))
             {
@@ -50,23 +60,22 @@ namespace ShoeAppDL
 
                 while (reader.Read())
                 {
-                    listOfCustomer.Add(new Customer(){
-                        CustomerID = reader.GetInt32(0),
-                        Name = reader.GetString(1),
-                        Email = reader.GetString(2),
-                        Address = reader.GetString(3),
-                        Phonenumber = reader.GetString(4)
+                    listOfCustomers.Add(new Customer(){
+                        UserName = reader.GetString(1),
+                        Password = reader.GetString(2),
+                        FirstName = reader.GetString(3),
+                        LastName = reader.GetString(4),
+                        Address = reader.GetString(5),
+                        City = reader.GetString(6),
+                        State = reader.GetString(7),
                     });
                 }
 
-                return listOfCustomer;
+                return listOfCustomers;
             }
         }
 
-        public void Update(Customer c_resource)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 
 
