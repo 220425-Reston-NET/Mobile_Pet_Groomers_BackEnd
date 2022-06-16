@@ -1,5 +1,5 @@
-using MobileGroomersModels;
 using Microsoft.Data.SqlClient;
+using MobileGroomersModels;
 
 namespace MobileGroomersDL
 {
@@ -45,9 +45,7 @@ namespace MobileGroomersDL
             return listofCurrentStore;
         }
 
-        private List<Product> GetProductsFromAStore(int p_sId);
-        {
-            public Task<List<Store>> GetAllAsync()
+        public Task<List<Store>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
@@ -57,11 +55,30 @@ namespace MobileGroomersDL
             throw new NotImplementedException();
         }
 
-        string SqlQuery = @"select s.sName, i.Quantity, p.pName from Store s
-                                inner join Inventory i on s.sId = i.sId
-                                inner join Prodduct p on i i.pId = p.pId
-                                where s.sId = @storeId";
-        List<Product> listOfCurrentProduct = new List<Product>();
+        private List<Product> GetProductsFromAStore(int p_sId)
+        {
+            string SqlQuery = @"select s.sName, i.Quantity, p.pId, p.pName from Store s
+                                    inner join Inventory i on s.sId = i.sId
+                                    inner join Product p on i i.pId = p.pId
+                                    where s.sId = @storeId";
+            List<Product> listOfCurrentProduct = new List<Product>();
+            using (SqlConnection con = new SqlConnection(_connectionString))
+            {
+                con.Open();
+                SqlCommand command = new SqlCommand(SqlQuery, con);
+
+                command.Parameters.AddWithValue("@StoreId", p_sId);
+                SqlDataReader reader = command.ExecuteReader(); 
+
+                while (reader.Read())
+                {
+                    listOfCurrentProduct.Add(new Product(){
+                        Id = reader.GetInt32(0),
+                        Name = reader.GetString(1)
+                    });
+                }
+            }
+            return listOfCurrentProduct;
         }
     }
 }

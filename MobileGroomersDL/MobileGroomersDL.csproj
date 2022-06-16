@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <ProjectReference Include="..\MobileGroomersModels\MobileGroomers.csproj" />
+    <ProjectReference Include="..\MobileGroomersModels\MobileGroomersModels.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -7,7 +7,7 @@ namespace MobileGroomersAPI.Controllers
     [ApiController]
     public class StoreController : ControllerBase
     {
-        [HttpGet("ViewStoreStore")]
+        [HttpGet("ViewStore")]
         public IActionResult ViewStoreStore([FromQuery] int p_sId)
         {
             return Ok();
