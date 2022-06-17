@@ -23,7 +23,7 @@ while(repeat)
     // }
     if (ans == "AddCustomer")
     {
-        menu = new AddCustomer(new CustomerBL(new CustomerRepository()));
+        menu = new AddCustomer(new CustomerBL(new SQLCustomerRepository()));
     }
     // else if (ans == "SearchCustomer")
     // {
