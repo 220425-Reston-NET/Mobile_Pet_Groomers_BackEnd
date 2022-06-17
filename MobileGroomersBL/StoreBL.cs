@@ -9,7 +9,7 @@ namespace StoreBL
         {
             _storeRepo = p_storeRepo;
         }
-        public List<Product> ViewStoreInvetory(int p_sId)
+        public List<Product> ViewStoreInventory(int p_sId) //fixed spelling 
         {
             List<Store> listOfCurrentStore = _storeRepo.GetAll();
             foreach (Store item in listOfCurrentStore)
