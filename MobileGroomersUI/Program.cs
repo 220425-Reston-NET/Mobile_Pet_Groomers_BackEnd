@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using MobileGroomerBL;
+
+using MobileGroomersBL;
 using MobileGroomersDL;
 using MobileGroomersUI;
 
@@ -16,19 +17,19 @@ while(repeat)
     menu.Display();
     string ans = menu.Yourchoice();
 
-    if (ans == "MainMenu")
-    {
-        menu = new MainMenu();
-    }
-    else if (ans == "AddCustomer")
+    // if (ans == "MainMenu")
+    // {
+    //     menu = new MainMenu();
+    // }
+    if (ans == "AddCustomer")
     {
         menu = new AddCustomer(new CustomerBL(new CustomerRepository()));
     }
-    else if (ans == "SearchCustomer")
-    {
-        menu = new SearchCustomerByUserName(new CustomerBL(new SQLCustomerRepository()));
-    }
-    else if (ans == "Exit")
+    // else if (ans == "SearchCustomer")
+    // {
+    //     menu = new SearchCustomerByUserName(new CustomerBL(new SQLCustomerRepository()));
+    // }
+    // else if (ans == "Exit")
     {
         repeat = false;
     }

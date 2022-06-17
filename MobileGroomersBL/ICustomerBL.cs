@@ -9,6 +9,8 @@ namespace MobileGroomersBL
         Customer SearchCustomerByUserName(string c_CustomerUserName);
         Customer SearchCustomerByAddress(string c_CustomerAddress);
 
+        List<Customer> GetCustomers();
+
 
 
     }

@@ -7,7 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="4.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MobileGroomersBL\MobileGroomersBL.csproj" />
+    <ProjectReference Include="..\MobileGroomersModels\MobileGroomersModel.csproj" />
   </ItemGroup>
 
 </Project>

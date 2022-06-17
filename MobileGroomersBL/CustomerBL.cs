@@ -1,45 +1,65 @@
 using MobileGoomersModels;
 using MobileGroomersBL;
+using MobileGroomersDL;
 
-namespace MobileGroomerBL
+namespace MobileGroomersBL
 {
     public class CustomerBL : ICustomerBL
     {
-        //===================================================
         private IRepository<Customer> _CustomerRepo;
-        private global::MobileGroomersDL.CustomerRepository customerRepository;
 
-        public CustomerBL(IRepository<Customer> C_CustomerRepo)
+        public CustomerBL(IRepository<Customer> c_CustomerRepo)
         {
-            _CustomerRepo = C_CustomerRepo;
+            _CustomerRepo = c_CustomerRepo;
+        }
+      
+        public async void AddCustomer(Customer c_Customer)
+        {
+            Customer foundedCustomer = SearchCustomerByUserName(c_Customer.UserName);
+            if (foundedCustomer == null)    
+            {
+                _CustomerRepo.Add(c_Customer);
+            }
+            else
+            {
+                throw new Exception("Customer UserName already exist!!");
+            }
         }
 
-        public CustomerBL(global::MobileGroomersDL.SQLCustomerRepository sQLCustomerRepository)
+        public List<Customer> GetCustomers()
         {
-            SQLCustomerRepository = sQLCustomerRepository;
-        }
-
-        public CustomerBL(global::MobileGroomersDL.CustomerRepository customerRepository)
-        {
-            this.customerRepository = customerRepository;
-        }
-
-        public global::MobileGroomersDL.SQLCustomerRepository SQLCustomerRepository { get; }
-
-        //=======================================================
-        public void AddCustomer(Customer c_Customer)
-        {
-            throw new NotImplementedException();
+            return _CustomerRepo.GetAll();
         }
 
         public Customer SearchCustomerByAddress(string c_CustomerAddress)
         {
-            throw new NotImplementedException();
+            List<Customer> currentListOfCustomer = _CustomerRepo.GetAll();
+           
+           foreach (Customer custobj in currentListOfCustomer)
+           {
+               if (custobj.Address == c_CustomerAddress)
+               {
+                   return custobj;
+               }
+           }
+           
+                return null;
         }
 
         public Customer SearchCustomerByUserName(string c_CustomerUserName)
         {
-            throw new NotImplementedException();
+             List<Customer> currentListOfCustomers = _CustomerRepo.GetAll();
+           
+           foreach (Customer custobj in currentListOfCustomers)
+           {
+               if (custobj.UserName == c_CustomerUserName)
+               {
+                   return custobj;
+               }
+           
+           
+            }
+                return null;
         }
     }
 }

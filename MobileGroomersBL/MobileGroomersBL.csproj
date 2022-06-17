@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MobileGroomersModels\MobileGroomersModel.csproj" />
+    <ProjectReference Include="..\MobileGroomersDL\MobileGroomersDL.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
