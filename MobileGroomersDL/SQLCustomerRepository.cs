@@ -9,10 +9,7 @@ namespace MobileGroomersDL
         //==============================================
         private string _connectionString;
 
-        public SQLCustomerRepository()
-        {
-        }
-
+        
         public SQLCustomerRepository(string c_connectionString)
 
     {
