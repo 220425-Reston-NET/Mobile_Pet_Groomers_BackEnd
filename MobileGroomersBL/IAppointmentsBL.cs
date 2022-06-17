@@ -27,7 +27,7 @@ namespace MobileGroomersBL
         /// <param name="p_app">Name of appointments used to search </param>
         /// <returns>appointments searched</returns>
 
-        Appointments SearchAppointmentsByAppID(int p_app);
+        Appointments SearchAppointmentsByCustName(string p_app);
 
         public void update (Appointments p_app);
 

@@ -15,7 +15,7 @@ namespace MobileGroomersDL
         public void Add(Appointments p_app)
         {
              string SQLQuery = @"insert into Appointments
-                                values (@AppID, @CustName, @CustNumber, @PetName, @PetBreed, @App_Date_Time, @ServiceName)";
+                                values (@CustName, @CustNumber, @PetName, @PetBreed, @App_Date_Time, @ServiceName)";
 
             using (SqlConnection con = new SqlConnection(_connectionString))
             {
@@ -25,7 +25,6 @@ namespace MobileGroomersDL
 
                 //We fill in the parameters we added earlier
                 //We dynamically change information using AddWithValue and Parameters to avoid the risk of SQL Injection attack
-                command.Parameters.AddWithValue("@AppID", p_app.AppID);
                 command.Parameters.AddWithValue("@CustName", p_app.CustName);
                 command.Parameters.AddWithValue("@CustNumber", p_app.CustNumber);
                 command.Parameters.AddWithValue("@PetName", p_app.PetName);
@@ -54,7 +53,6 @@ namespace MobileGroomersDL
                while (reader.Read())
                {
                    listofapp.Add(new Appointments(){
-                       AppID = reader.GetInt32(0),
                        CustName = reader.GetString(1),
                        CustNumber = reader.GetInt64(2),
                        PetName = reader.GetString(3),

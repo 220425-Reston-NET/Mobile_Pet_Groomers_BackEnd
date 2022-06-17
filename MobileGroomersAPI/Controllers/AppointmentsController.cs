@@ -1,7 +1,12 @@
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using MobileGroomersBL;
 using MobileGroomersModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MobileGroomersApi.Controllers
 {
@@ -37,13 +42,13 @@ namespace MobileGroomersApi.Controllers
         }
 
         [HttpPost("AddAppointments")]
-        public IActionResult AddAppointments([FromBody] Appointments p_cli)
+        public IActionResult AddAppointments([FromBody] Appointments p_app)
         {
            try
             {
-                _AppBL.AddAppointments(p_cli);
+                _AppBL.AddAppointments(p_app);
                
-                return Created("Appointments was created!", p_cli);
+                return Created("Appointments was created!", p_app);
                
             
             }
@@ -53,12 +58,12 @@ namespace MobileGroomersApi.Controllers
             }
         }
 
-        [HttpGet("SearchAppointmentsByAppID")]
-        public IActionResult SearchAppointments([FromQuery] int appID)
+        [HttpGet("SearchAppointmentsByCustName")]
+        public IActionResult SearchAppointments([FromQuery] string CustName)
         {
             try
             {
-                return Ok(_AppBL.SearchAppointmentsByAppID(appID));
+                return Ok(_AppBL.SearchAppointmentsByCustName(CustName));
             }
             catch (SqlException)
             {

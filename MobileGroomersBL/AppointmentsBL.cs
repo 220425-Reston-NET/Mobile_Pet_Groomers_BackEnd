@@ -14,17 +14,9 @@ namespace MobileGroomersBL
             _AppRepo = p_AppRepo;
         }
         //======================================================
-        public void AddAppointments(Appointments p_app)
+        public void AddAppointments(Appointments p_AppID)
         {
-            Appointments foundedappointments = SearchAppointmentsByAppID(p_app.AppID);
-            if (foundedappointments == null)
-            {
-                _AppRepo.Add(p_app);
-            }
-            else 
-            {
-                throw new Exception("Appointment already exists");
-            }
+                _AppRepo.Add(p_AppID);
         }
 
         public List<Appointments> GetAllAppointments()
@@ -32,9 +24,9 @@ namespace MobileGroomersBL
             return _AppRepo.GetAll();
         }
 
-        public Appointments SearchAppointmentsByAppID(int p_app)
+        public Appointments SearchAppointmentsByCustName(string p_app)
         {
-            throw new NotImplementedException();
+            return _AppRepo.GetAll().First(Appointments => Appointments.CustName == p_app);
         }
 
         public void update(Appointments p_app)

@@ -9,7 +9,7 @@ namespace MobileGroomersModels
         public long CustNumber { get; set; }
         public string PetName { get; set; }
         public string PetBreed { get; set; }
-        public object DateTime { get; set; }
+        public DateTime DateTime { get; set; }
         public string ServiceName { get; set; }
 
         DateTime dt = new DateTime(2018, 7, 23, 08, 20, 10);
@@ -19,10 +19,9 @@ namespace MobileGroomersModels
         {
             AppID = 0;
             CustName = "Default";
-            CustNumber = 0;
+            CustNumber = 9999999999;
             PetName = "Default";
             PetBreed = "Default";
-            DateTime = 0;
             ServiceName = "Default";
         }
     }
