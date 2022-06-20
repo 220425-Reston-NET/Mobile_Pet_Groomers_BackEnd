@@ -1,4 +1,6 @@
 using MobileGroomersBL;
+using MobileGroomersDL;
+using MobileGroomersModels;
 
 namespace StoreBL
 {
@@ -21,5 +23,11 @@ namespace StoreBL
             }
             throw new NotImplementedException();
         }
+
+        public List<Product> ViewStoreInvetory(int p_sId)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

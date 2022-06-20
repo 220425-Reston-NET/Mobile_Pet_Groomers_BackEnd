@@ -1,3 +1,5 @@
+using MobileGroomersModels;
+
 namespace MobileGroomersBL
 {
     public interface IStoreBL
