@@ -35,6 +35,11 @@ namespace MobileGroomersDL
         {
             throw new NotImplementedException();
         }
+
+        public void Update(Customer p_resource)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

@@ -55,6 +55,11 @@ namespace MobileGroomersDL
             throw new NotImplementedException();
         }
 
+        public void Update(Store p_resource)
+        {
+            throw new NotImplementedException();
+        }
+
         private List<Product> GetProductsFromAStore(int p_sId)
         {
             string SqlQuery = @"select s.sName, i.Quantity, p.pId, p.pName from Store s

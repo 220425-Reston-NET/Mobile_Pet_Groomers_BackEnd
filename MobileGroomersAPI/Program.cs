@@ -8,6 +8,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// builder.Services.AddScoped<IRepository<Appointments>, SQLAppointmentsRepository>(repo => new SQLAppointmentsRepository(builder.Configuration.GetConnectionString("Charlene Crespo")));
+// builder.Services.AddScoped<IAppointmentsBL, AppointmentsBL>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
