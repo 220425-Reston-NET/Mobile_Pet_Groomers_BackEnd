@@ -1,3 +1,8 @@
+using MobileGoomersModels;
+using MobileGroomersBL;
+using MobileGroomersDL;
+using MobileGroomersModels;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -8,9 +13,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// builder.Services.AddScoped<IRepository<Appointments>, SQLAppointmentsRepository>(repo => new SQLAppointmentsRepository(builder.Configuration.GetConnectionString("Charlene Crespo")));
-// builder.Services.AddScoped<IAppointmentsBL, AppointmentsBL>();
-
+builder.Services.AddScoped<IRepository<Appointments>, SQLAppointmentsRepository>(repo => new SQLAppointmentsRepository(builder.Configuration.GetConnectionString("Maaz Umer Store")));
+builder.Services.AddScoped<IAppointmentsBL, AppointmentsBL>();
+builder.Services.AddScoped<IRepository<Customer>, SQLCustomerRepository>(repo => new SQLCustomerRepository(builder.Configuration.GetConnectionString("Maaz Umer Store")));
+builder.Services.AddScoped<ICustomerBL, CustomerBL>();
+builder.Services.AddScoped<IRepository<Store>, SQLStoreRepository>(repo => new SQLStoreRepository(builder.Configuration.GetConnectionString("Maaz Umer Store")));
+builder.Services.AddScoped<ICustomerBL, CustomerBL>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
