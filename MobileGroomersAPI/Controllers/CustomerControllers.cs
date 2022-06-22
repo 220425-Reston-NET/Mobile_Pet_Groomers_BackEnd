@@ -32,7 +32,7 @@ namespace MobileGroomersAPI.Controllers
             try
             {
                 List<Customer> listOfCurrentCustomers = _customerBL.GetCustomers();
-                //Followed by "OK()"
+                // Followed by "OK()"
                 return Ok(listOfCurrentCustomers);
             }
             catch (SqlException)
@@ -56,7 +56,19 @@ namespace MobileGroomersAPI.Controllers
                 return Conflict();
             }
         }
-    
+
+        [HttpGet("SearchCustomerByName")]
+        public IActionResult SearchCustomer([FromQuery] string custName)
+        {
+            try
+            {
+                return Ok(_customerBL.SearchCustomerByUserName(custName));
+            }
+            catch (SqlException)
+            {
+                return Conflict();
+            }
+        }
     }
     
 }

@@ -13,14 +13,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IRepository<Appointments>, SQLAppointmentsRepository>(repo => new SQLAppointmentsRepository(builder.Configuration.GetConnectionString("Maaz Umer Store")));
+builder.Services.AddScoped<IRepository<Appointments>, SQLAppointmentsRepository>(repo => new SQLAppointmentsRepository(Environment.GetEnvironmentVariable("Connection_String")));
 builder.Services.AddScoped<IAppointmentsBL, AppointmentsBL>();
-builder.Services.AddScoped<IRepository<Customer>, SQLCustomerRepository>(repo => new SQLCustomerRepository(builder.Configuration.GetConnectionString("Maaz Umer Store")));
+builder.Services.AddScoped<IRepository<Customer>, SQLCustomerRepository>(repo => new SQLCustomerRepository(Environment.GetEnvironmentVariable("Connection_String")));
 builder.Services.AddScoped<ICustomerBL, CustomerBL>();
-builder.Services.AddScoped<IRepository<Store>, SQLStoreRepository>(repo => new SQLStoreRepository(builder.Configuration.GetConnectionString("Maaz Umer Store")));
-builder.Services.AddScoped<ICustomerBL, CustomerBL>();
+builder.Services.AddScoped<IRepository<Store>, SQLStoreRepository>(repo => new SQLStoreRepository(Environment.GetEnvironmentVariable("Connection_String")));
+builder.Services.AddScoped<IStoreBL, StoreBL>();
 var app = builder.Build();
 
+//(builder.Configuration.GetConnectionString("Maaz Umer Store") >> for swagger
+//Environment.GetEnvironmentVariable("Connection_String") >> for aws 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

@@ -18,8 +18,8 @@ namespace MobileGroomersDL
     //====================================================
         public void Add(Customer c_resource)
         {
-            string SQLQuary = @"insert into Customers
-                               values (@custName, @custPassword, @custFirstName, @custLastName, @custAddress, @custCity, @custState)";
+            string SQLQuary = @"insert into Customer
+                               values (@CustName, @CustPassword, @CustFirstName, @CustLastName, @CustAddress, @CustCity, @CustState)";
 
             using (SqlConnection con = new SqlConnection(_connectionString))
             {
@@ -28,13 +28,13 @@ namespace MobileGroomersDL
                 SqlCommand command = new SqlCommand(SQLQuary, con);
 
 
-                command.Parameters.AddWithValue("@custName", c_resource.Name);
-                command.Parameters.AddWithValue("@custPassword", c_resource.Password);
-                command.Parameters.AddWithValue("@custFirstName", c_resource.FirstName);
-                command.Parameters.AddWithValue("@custLastName", c_resource.LastName);
-                command.Parameters.AddWithValue("@custAddress", c_resource.Address);
-                command.Parameters.AddWithValue("@custCity", c_resource.City);
-                command.Parameters.AddWithValue("@custState", c_resource.State);
+                command.Parameters.AddWithValue("@CustName", c_resource.Name);
+                command.Parameters.AddWithValue("@CustPassword", c_resource.Password);
+                command.Parameters.AddWithValue("@CustFirstName", c_resource.FirstName);
+                command.Parameters.AddWithValue("@CustLastName", c_resource.LastName);
+                command.Parameters.AddWithValue("@CustAddress", c_resource.Address);
+                command.Parameters.AddWithValue("@CustCity", c_resource.City);
+                command.Parameters.AddWithValue("@CustState", c_resource.State);
 
                 command.ExecuteNonQuery();
             }
@@ -42,7 +42,7 @@ namespace MobileGroomersDL
 
         public List<Customer> GetAll()
         {
-            string SQLQuary = @"select * from Customers";
+            string SQLQuary = @"select * from Customer";
 
             List<Customer> listOfCustomers = new List<Customer>();
 
