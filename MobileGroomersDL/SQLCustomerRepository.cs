@@ -19,7 +19,7 @@ namespace MobileGroomersDL
         public void Add(Customer c_resource)
         {
             string SQLQuary = @"insert into Customers
-                               values (@custUserName, @custPassword, @custFirstName, @custLastName, @custAddress, @custCity, @custState)";
+                               values (@custName, @custPassword, @custFirstName, @custLastName, @custAddress, @custCity, @custState)";
 
             using (SqlConnection con = new SqlConnection(_connectionString))
             {
@@ -28,7 +28,7 @@ namespace MobileGroomersDL
                 SqlCommand command = new SqlCommand(SQLQuary, con);
 
 
-                command.Parameters.AddWithValue("@custUserName", c_resource.UserName);
+                command.Parameters.AddWithValue("@custName", c_resource.Name);
                 command.Parameters.AddWithValue("@custPassword", c_resource.Password);
                 command.Parameters.AddWithValue("@custFirstName", c_resource.FirstName);
                 command.Parameters.AddWithValue("@custLastName", c_resource.LastName);
@@ -58,7 +58,7 @@ namespace MobileGroomersDL
                 while (reader.Read())
                 {
                     listOfCustomers.Add(new Customer(){
-                        UserName = reader.GetString(1),
+                        Name = reader.GetString(1),
                         Password = reader.GetString(2),
                         FirstName = reader.GetString(3),
                         LastName = reader.GetString(4),
