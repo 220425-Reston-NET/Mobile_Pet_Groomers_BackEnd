@@ -1,8 +1,7 @@
-using MobileGroomersBL;
 using MobileGroomersDL;
 using MobileGroomersModels;
 
-namespace StoreBL
+namespace MobileGroomersBL
 {
     public class StoreBL : IStoreBL
     {
