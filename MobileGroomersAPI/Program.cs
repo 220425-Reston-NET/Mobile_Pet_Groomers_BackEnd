@@ -5,7 +5,16 @@ using MobileGroomersModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+//Adding CORS
+builder.Services.AddCors(
+    (options) => {
+        options.AddDefaultPolicy(origin => {
+            origin.AllowAnyOrigin();
+            origin.AllowAnyMethod();
+            origin.AllowAnyHeader();
+        });
+    }
+);
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -31,6 +40,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+//CORS Configure
+app.UseCors();
 
 app.UseHttpsRedirection();
 
