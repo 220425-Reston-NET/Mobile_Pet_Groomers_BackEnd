@@ -11,6 +11,9 @@ namespace MobileGroomersModels
         public string PetBreed { get; set; }
         public DateTime DateTime { get; set; }
         public string ServiceName { get; set; }
+        public int cId { get; set;}
+        public int eId { get; set;}
+        public int pId { get; set; }
 
         DateTime dt = new DateTime(2018, 7, 23, 08, 20, 10);
         
@@ -23,6 +26,9 @@ namespace MobileGroomersModels
             PetName = "Default";
             PetBreed = "Default";
             ServiceName = "Default";
+            cId = 1233;
+            eId = 331;
+            pId = 4421;
         }
     }
 }

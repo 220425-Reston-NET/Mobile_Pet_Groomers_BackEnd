@@ -22,7 +22,8 @@ builder.Services.AddScoped<IStoreBL, StoreBL>();
 var app = builder.Build();
 
 //(builder.Configuration.GetConnectionString("Maaz Umer Store") >> for swagger
-//Environment.GetEnvironmentVariable("Connection_String") >> for aws 
+//Environment.GetEnvironmentVariable("Connection_String") >> for awss
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

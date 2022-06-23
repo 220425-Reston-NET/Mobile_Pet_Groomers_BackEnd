@@ -22,7 +22,7 @@ namespace MobileGroomersDL
 
         public List<Store> GetAll()
         {
-            string sqlQuery = @"select * from Store";
+            string sqlQuery = @"select * from StoreFront";
             List<Store> listofCurrentStore = new List<Store>();
             using (SqlConnection con = new SqlConnection(_connectionString))
             {
@@ -62,17 +62,18 @@ namespace MobileGroomersDL
 
         private List<Product> GetProductsFromAStore(int p_sId)
         {
-            string SqlQuery = @"select s.sName, i.Quantity, p.pId, p.pName from Store s
-                                    inner join Inventory i on s.sId = i.sId
-                                    inner join Product p on i i.pId = p.pId
-                                    where s.sId = @storeId";
+            string SqlQuery = @"select s.sName, p.ServiceName, i.quantity, p.pId from StoreFront s
+                                inner join pInventory i on s.sId = i.sId
+                                inner join Products p on p.pId = i.pId
+                                    where s.sId = @sId";
+
             List<Product> listOfCurrentProduct = new List<Product>();
             using (SqlConnection con = new SqlConnection(_connectionString))
             {
                 con.Open();
                 SqlCommand command = new SqlCommand(SqlQuery, con);
 
-                command.Parameters.AddWithValue("@StoreId", p_sId);
+                command.Parameters.AddWithValue("@sId", p_sId);
                 SqlDataReader reader = command.ExecuteReader(); 
 
                 while (reader.Read())
