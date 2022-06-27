@@ -14,7 +14,7 @@ namespace MobileGroomersBL
       
         public async void AddCustomer(Customer c_Customer)
         {
-            Customer foundedCustomer = SearchCustomerByUserName(c_Customer.Name);
+            Customer foundedCustomer = SearchCustomerByUserName(c_Customer.Name, c_Customer.Password);
             if (foundedCustomer == null)    
             {
                 _CustomerRepo.Add(c_Customer);
@@ -45,13 +45,13 @@ namespace MobileGroomersBL
                 return null;
         }
 
-        public Customer SearchCustomerByUserName(string c_CustomerUserName)
+        public Customer SearchCustomerByUserName(string c_CustomerUserName, string c_password)
         {
              List<Customer> currentListOfCustomers = _CustomerRepo.GetAll();
            
            foreach (Customer custobj in currentListOfCustomers)
            {
-               if (custobj.Name == c_CustomerUserName)
+               if (custobj.Name == c_CustomerUserName && custobj.Password == c_password)
                {
                    return custobj;
                }
