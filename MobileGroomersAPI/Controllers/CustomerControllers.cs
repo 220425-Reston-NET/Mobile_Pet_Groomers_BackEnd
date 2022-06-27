@@ -58,11 +58,11 @@ namespace MobileGroomersAPI.Controllers
         }
 
         [HttpGet("SearchCustomerByName")]
-        public IActionResult SearchCustomer([FromQuery] string custName)
+        public IActionResult SearchCustomer([FromQuery] string custName, string custPassword)
         {
             try
             {
-                return Ok(_customerBL.SearchCustomerByUserName(custName));
+                return Ok(_customerBL.SearchCustomerByUserName(custName, custPassword));
             }
             catch (SqlException)
             {
